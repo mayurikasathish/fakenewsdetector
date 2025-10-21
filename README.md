@@ -9,3 +9,10 @@ Jupyter Notebook
 
 Dataset:
 Using the ISOT Fake News Dataset with ~45k articles (23k fake, 21k real) covering political and world news from 2016-2017.
+
+## Unique Feature: Source-Agnostic Detection
+
+Unlike typical fake news detectors that rely on source recognition, 
+this model analyzes *writing patterns* and *content quality* rather 
+than simply memorizing trusted sources. This makes it more robust 
+for detecting misinformation from unknown sources.
