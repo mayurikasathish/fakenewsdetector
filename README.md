@@ -31,3 +31,32 @@ for detecting misinformation from unknown sources.
 - Implement source-agnostic training
 - Test on diverse news sources
 - Build web interface for testing
+
+- ## 🔍 Key Findings & Limitations
+
+### Dataset Bias Discovery
+
+During model evaluation, I discovered a significant dataset bias:
+
+**The Issue:**
+- Training data (ISOT dataset) contains predominantly Reuters articles for "real" news
+- All 4 tested models (Logistic Regression, SVM, Random Forest, Naive Bayes) learned to associate "Reuters" with authenticity
+- Models incorrectly flag legitimate news from other sources (AP, NYT, BBC) as potentially fake
+
+**Evidence:**
+```
+Test: "Reuters reports Federal Reserve raised rates"
+All models: REAL ✓
+
+Test: "New York Times reports unemployment decreased"  
+All models: FAKE ✗ (incorrect)
+```
+
+**Why This Matters:**
+This demonstrates that high accuracy (99%+) doesn't guarantee real-world robustness. The models learned source recognition rather than content quality patterns.
+
+**Proposed Solutions for Future Improvement:**
+1. Use more diverse training data (multiple news sources)
+2. Remove source names during preprocessing to force content-based learning
+3. Implement source-agnostic feature engineering
+4. Test on out-of-domain news sources
