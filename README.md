@@ -16,3 +16,18 @@ Unlike typical fake news detectors that rely on source recognition,
 this model analyzes *writing patterns* and *content quality* rather 
 than simply memorizing trusted sources. This makes it more robust 
 for detecting misinformation from unknown sources.
+
+**Model Performance:**
+- Algorithm: Logistic Regression
+- Accuracy: 99.01%
+- Dataset: ISOT Fake News (45k articles)
+
+**Key Findings:**
+- Model successfully identifies sensational vs professional writing styles
+- Discovered dataset bias: model over-relies on source attribution (e.g., "Reuters")
+- High accuracy on test set, but potential generalization issues
+
+**Next Steps:**
+- Implement source-agnostic training
+- Test on diverse news sources
+- Build web interface for testing
